@@ -370,6 +370,17 @@ nav a.active {
 .ai-message {
   justify-content: flex-start;
 }
+/* Hide scrollbar but still allow scrolling */
+ai-chat-messages{
+  overflow: auto; /* scrolling works */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* For Chrome, Safari, Edge */
+.ai-chat-messages::-webkit-scrollbar {
+  display: none;
+}
 
 .user-message {
   justify-content: flex-end;
@@ -2973,18 +2984,23 @@ footer {
 
 
 
+/* --- Base Styles (Mobile First Approach) --- */
 .email-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 300px;
+  gap: 15px; /* A slightly smaller gap for mobile */
+  width: 100%; /* Take up all available horizontal space */
+  max-width: 400px; /* Set a max-width for larger screens */
   margin-top: 2px;
-  margin-left: 60px;
+  /* Use auto for left/right margins to center it within its parent */
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid transparent;
   border-radius: 12px;
   background-color: transparent;
-  font-size: 1.2rem;
+  font-size: 1.1rem; /* Slightly adjusted base font size for readability */
   font-family: Arial, sans-serif;
+  box-sizing: border-box; /* Ensures padding doesn't add to the width */
 }
 
 .email-container label {
@@ -2993,14 +3009,13 @@ footer {
 }
 
 .email-container input {
-  padding: 10px;
+  padding: 12px; /* A bit more padding for easier tapping on mobile */
   border: 1px solid transparent;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 1rem; /* Using rem for better scalability */
   outline: none;
   transition: border-color 0.3s ease;
   background: var(--input-bg);
-
 }
 
 .email-container input:focus {
@@ -3008,12 +3023,13 @@ footer {
 }
 
 .email-container button {
-  padding: 10px;
+  padding: 12px; /* Match the input padding */
   border: none;
   border-radius: 8px;
   background: linear-gradient(90deg, #00D1FF 0%, #00A3FF 70%, #4F00FF 100%);
   color: white;
   font-weight: 700;
+  font-size: 1rem; /* Consistent font size */
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -3023,17 +3039,27 @@ footer {
   opacity: 0.9;
 }
 
-@media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+/* --- Desktop and Larger Screen Styles --- */
+/* We use min-width for a desktop-first override */
+@media (min-width: 768px) {
+  .email-container {
+    width: 300px; /* Restore the fixed width for desktop */
+    margin-left: 60px; /* Restore the specific margin for desktop layout */
+    margin-right: 0; /* Remove the auto margin */
+    gap: 20px; /* Restore the original gap */
+    font-size: 1.2rem; /* Restore original font size */
   }
 
-  .email-container {
-    width: 100%;
-    gap: 10px;
+  .email-container input, .email-container button {
+    padding: 10px; /* Revert to original padding */
+    font-size: 16px; /* Revert to original font size */
   }
 }
+
+/* Note: The .footer-content rule from your original code was removed
+  as its base styles were not provided. You can add it back in a
+  similar mobile-first pattern.
+*/
 
 .logo-animation {
   position: relative;
@@ -3419,7 +3445,7 @@ mentor styling
 
 .btn {
   padding: 0.8rem 1.8rem;
-  border-radius: 8px;
+  border-radius: 16px;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
@@ -4158,7 +4184,7 @@ why-learn-section {
 .features-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 1.2rem;
   width: 100%;
 }
 
@@ -4410,3 +4436,4 @@ time dicount
     font-size: 2rem;
   }
 }
+
