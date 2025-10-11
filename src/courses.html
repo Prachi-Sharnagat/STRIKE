@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses — STRIKE</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text y=%2224%22 font-size=%2228%22>🔥</text></svg>" />
+  <link rel="stylesheet" href="css/courses.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+
+  <!-- NAVBAR (Same as main page) -->
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <!--logo and strike -->
+    <div class="logo">
+      <!--animation logo -->
+      <div id="b" class="cssload-triangles">
+        <div class="cssload-tri cssload-invert"></div>
+        <div class="cssload-tri cssload-invert"></div>
+        <div class="cssload-tri"></div>
+        <div class="cssload-tri cssload-invert"></div>
+        <div class="cssload-tri cssload-invert"></div>
+        <div class="cssload-tri"></div>
+        <div class="cssload-tri cssload-invert"></div>
+        <div class="cssload-tri"></div>
+        <div class="cssload-tri cssload-invert"></div>
+      </div>
+      <span class="logo-span">&nbsp; &nbsp; STRIKE</span>
+    </div>
+
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <nav class="nav-menu">
+      <a href="./index.html">Home</a>
+      <a href="./courses.html" class="active">Courses</a>
+      <a href="./about.html">About</a>
+
+      <a href="./contact.html" class="btn">Contact</a>
+      <a href="#login-modal" class="btn-login"><i class="fas fa-user"></i> &nbsp; Login</a>
+    </nav>
+  </header>
+
+  <!--login modal-->
+
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <a href="#" class="modal-close" title="Close Modal">&times;</a>
+      <div class="modal-header">
+        <h2>Welcome to STRIKE</h2>
+        <p>Sign in to access your courses or create a new account to get started.</p>
+      </div>
+
+      <div class="modal-tabs">
+        <a href="#" class="active">Sign In</a>
+        <a href="#">Sign Up</a>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your.email@example.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn-submit">Sign In</button>
+        <a href="#" class="forgot-password">Forgot your password?</a>
+      </form>
+    </div>
+  </div>
+
+  <!--courses-->
+  <section class="courses-section">
+    <header class="section-header">
+      <h1>Our <span class="gradient-text">Premium Courses</span></h1>
+      <p>Discover our comprehensive learning programs designed by industry experts to advance your career and technical
+        skills.</p>
+      <div class="header-accent"></div>
+    </header>
+    <!-- Filter Navigation -->
+    <nav class="filter-nav">
+      <button class="filter-btn active">All Courses (24)</button>
+      <button class="filter-btn">Web Development (8)</button>
+      <button class="filter-btn">Data Science (6)</button>
+      <button class="filter-btn">Mobile Development (4)</button>
+      <button class="filter-btn">AI & ML (6)</button>
+    </nav>
+
+    <!-- Courses Grid -->
+    <div class="courses-grid">
+      <!-- Course Card 1: Web Dev -->
+      <div class="course-card">
+        <div class="card-icon-container">
+          <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="difficulty-tag intermediate">Intermediate</span>
+            <div class="rating"><span class="star">★</span> 4.9</div>
+          </div>
+          <h3 class="card-title">Full-Stack Web Development</h3>
+          <p class="card-description">Master modern web development with React, Node.js, and cloud deployment.</p>
+          <div class="card-details">
+            <span>🕒 12 weeks</span>
+            <span>👥 2.5K</span>
+          </div>
+          <a href="#" class="btn-glow">Enroll Now</a>
+        </div>
+      </div>
+
+      <!-- Course Card 2: ML -->
+      <div class="course-card">
+        <div class="card-icon-container">
+          <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+            </path>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="difficulty-tag advanced">Advanced</span>
+            <div class="rating"><span class="star">★</span> 4.9</div>
+          </div>
+          <h3 class="card-title">Machine Learning </h3>
+          <p class="card-description">Learn ML algorithms, neural networks, and real-world AI applications.</p>
+          <div class="card-details">
+            <span>🕒 16 weeks</span>
+            <span>👥 1.8K</span>
+          </div>
+          <a href="#" class="btn-glow">Enroll Now</a>
+        </div>
+      </div>
+
+      <!-- Course Card 3: Data Science -->
+      <div class="course-card">
+        <div class="card-icon-container">
+          <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7l8-4 8 4m0 6l-8 4-8-4">
+            </path>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="difficulty-tag intermediate">Intermediate</span>
+            <div class="rating"><span class="star">★</span> 4.9</div>
+          </div>
+          <h3 class="card-title">Data Science & Analytics</h3>
+          <p class="card-description">Analyze data, build models, and make data-driven decisions.</p>
+          <div class="card-details">
+            <span>🕒 14 weeks</span>
+            <span>👥 2.1K</span>
+          </div>
+          <a href="#" class="btn-glow">Enroll Now</a>
+        </div>
+      </div>
+
+      <!-- Course Card 4: Mobile App Dev -->
+      <div class="course-card">
+        <div class="card-icon-container">
+          <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="difficulty-tag intermediate">Intermediate</span>
+            <div class="rating"><span class="star">★</span> 4.7</div>
+          </div>
+          <h3 class="card-title">Mobile App Development</h3>
+          <p class="card-description">Build native iOS and Android apps with React Native.</p>
+          <div class="card-details">
+            <span>🕒 10 weeks</span>
+            <span>👥 1.5K</span>
+          </div>
+          <a href="#" class="btn-glow">Enroll Now</a>
+        </div>
+      </div>
+
+      <!-- Course Card 5: UI/UX -->
+      <div class="course-card">
+        <div class="card-icon-container">
+          <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
+            </path>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="difficulty-tag beginner">Beginner</span>
+            <div class="rating"><span class="star">★</span> 4.9</div>
+          </div>
+          <h3 class="card-title">UI/UX Design Mastery</h3>
+          <p class="card-description">Create beautiful, user-friendly interfaces and experiences.</p>
+          <div class="card-details">
+            <span>🕒 8 weeks</span>
+            <span>👥 3.2K</span>
+          </div>
+          <a href="#" class="btn-glow">Enroll Now</a>
+        </div>
+      </div>
+
+      <!-- Course Card 6: Cybersecurity -->
+      <div class="course-card">
+        <div class="card-icon-container">
+          <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+            </path>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <span class="difficulty-tag advanced">Advanced</span>
+            <div class="rating"><span class="star">★</span> 4.8</div>
+          </div>
+          <h3 class="card-title">Cybersecurity Essentials</h3>
+          <p class="card-description">Protect systems, networks, and data from cyber threats.</p>
+          <div class="card-details">
+            <span>🕒 12 weeks</span>
+            <span>👥 1.2K</span>
+          </div>
+          <a href="#" class="btn-glow">Enroll Now</a>
+        </div>
+      </div>
+
+    </div>
+    <!--potienal -->
+    <div class="container-potiential">
+      <div class="guidance-grid">
+        <div class="guidance-content">
+          <h1>Unlock Your Career Potential with <span class="gradient-text">Our Expert Guidance</span></h1>
+          <p>We help you get industry-ready with resources and guidance tailored to your career goals.</p>
+          <ul class="feature-checklist">
+            <li>
+              <span class="icon-wrapper"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></span>
+              <span>Personalized Mentorship to Guide Your Career Path</span>
+            </li>
+            <li>
+              <span class="icon-wrapper"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></span>
+              <span>Career Resources & Industry Insights</span>
+            </li>
+            <li>
+              <span class="icon-wrapper"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></span>
+              <span>Hands-On Learning and Skill Enhancement</span>
+            </li>
+            <li>
+              <span class="icon-wrapper"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></span>
+              <span>Connect with a Strong Global Alumni Network</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="logo-wall">
+
+
+          <div class="features-grid">
+            <div class="feature-item">
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="#a476f9" />
+                <path d="M8 12.3333L10.4615 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <span>Structured DSA & Interview Preparation</span>
+            </div>
+            <div class="feature-item">
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="#a476f9" />
+                <path d="M8 12.3333L10.4615 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <span>Generative AI Projects & Labs</span>
+            </div>
+            <div class="feature-item">
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="#a476f9" />
+                <path d="M8 12.3333L10.4615 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <span>Mentor Reviews & Code Feedback</span>
+            </div>
+            <div class="feature-item">
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="#a476f9" />
+                <path d="M8 12.3333L10.4615 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <span>Mock Interviews & Career Guidance</span>
+            </div>
+            <!-- <div class="feature-item">
+                <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="#a476f9"/>
+                    <path d="M8 12.3333L10.4615 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Certificate & Placement Assistance</span>
+            </div> -->
+          </div>
+  </section>
+
+
+
+
+
+  <!-- AI CHAT FEATURE -->
+  <input type="checkbox" id="ai-chat-toggle" class="ai-chat-toggle">
+  <label for="ai-chat-toggle" class="ai-chat-button">
+    <i class="fas fa-comment"></i>
+    <span></span>
+  </label>
+  <div class="ai-chat-container">
+    <div class="ai-chat-header">
+      <div class="ai-avatar">
+        <i class="fas fa-comment-dots"></i>
+      </div>
+      <div class="ai-info">
+        <h3>STRIKE AI 🔥 </h3>
+        <p class="code-vibe">Coding vibes only 🚀</p>
+      </div>
+
+      <label for="ai-chat-toggle" class="ai-close-btn">
+        <i class="fas fa-times"></i>
+      </label>
+    </div>
+    <div class="ai-chat-messages">
+      <div class="ai-message">
+        <div class="message-bubble">
+          <p>Hello and welcome to STRIKE! 🔥 I’m here to guide you through our courses and help you get started on your
+            learning journey.</p>
+          <span class="message-time">12:00 Am</span>
+        </div>
+      </div>
+      <div class="user-message">
+        <div class="message-bubble">
+          <p>Hi! Thanks. Can you tell me about the courses you offer?</p>
+          <span class="message-time">12:00 AM</span>
+        </div>
+      </div>
+      <div class="ai-message">
+        <div class="message-bubble">
+          <p>Of course! We offer premium courses in:
+            <li>
+              Data Structures & Algorithms (DSA) – Master problem-solving and coding techniques.
+            </li>
+            <li>Generative AI – Hands-on projects with AI models.</li>
+            <li>Interview Preparation – Comprehensive guidance to crack coding interviews.</li>
+          </p>
+          <span class="message-time">12:01 AM</span>
+        </div>
+      </div>
+
+      <div class="user-message">
+        <div class="message-bubble">
+          <p>Sounds amazing! How do I enroll?</p>
+          <span class="message-time">12:02 PM</span>
+        </div>
+      </div>
+      <div class="ai-message">
+        <div class="message-bubble">
+          <p>Simply select your preferred course on our platform, complete the registration, and you’ll get instant
+            access to all course materials and projects.</p>
+          <span class="message-time">12:02 PM</span>
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <div class="ai-chat-input">
+      <input type="text" placeholder="Ask me anything...">
+      <button class="ai-send-btn">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="logo"> STRIKE 🔥</div>
+          <p>
+            Empowering learners with premium courses, cutting-edge AI projects, expert mentorship, and guaranteed
+            placement support.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <a href="./courses.html">Courses</a>
+          <a href="./about.html">About us</a>
+          <a href="./community.html">Community</a>
+          <a href="./contact.html">Contact</a>
+
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="https://coderarmy.in"> <i class="fas fa-laptop-code"></i></a>
+            <a href="https://www.linkedin.com/company/coderarmy"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@CoderArmy9"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/accounts/login/?next=%2Fcoder_army9%2F&source=omni_redirect"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="email-container">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" />
+          <button type="submit">Subscribe</button>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p>
+          Copyright © 2025 by Strike | All Rights Reserved.
+
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

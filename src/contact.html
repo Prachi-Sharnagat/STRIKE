@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strike - Contact us</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text y=%2224%22 font-size=%2228%22>🔥</text></svg>" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <!--logo and strike -->
+    <div class="logo">
+      <!--animation logo -->
+      <div id="b" class="cssload-triangles">
+        <div class="cssload-tri cssload-invert"></div>
+        <div class="cssload-tri cssload-invert"></div>
+        <div class="cssload-tri"></div>
+        <div class="cssload-tri cssload-invert"></div>
+        <div class="cssload-tri cssload-invert"></div>
+        <div class="cssload-tri"></div>
+        <div class="cssload-tri cssload-invert"></div>
+        <div class="cssload-tri"></div>
+        <div class="cssload-tri cssload-invert"></div>
+      </div>
+      <span class="logo-span">&nbsp; &nbsp; STRIKE</span>
+    </div>
+
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <nav class="nav-menu">
+      <a href="./index.html">Home</a>
+      <a href="./courses.html">Courses</a>
+      <a href="./about.html">About</a>
+
+      <a href="./contact.html" class="active btn">Contact</a>
+      <a href="#login-modal" class="btn-login"><i class="fas fa-user"></i> &nbsp; Login</a>
+    </nav>
+  </header>
+  <!--login modal-->
+
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <a href="#" class="modal-close" title="Close Modal">&times;</a>
+      <div class="modal-header">
+        <h2>Welcome to STRIKE</h2>
+        <p>Sign in to access your courses or create a new account to get started.</p>
+      </div>
+
+      <div class="modal-tabs">
+        <a href="#" class="active">Sign In</a>
+        <a href="#">Sign Up</a>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your.email@example.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn-submit">Sign In</button>
+        <a href="#" class="forgot-password">Forgot your password?</a>
+      </form>
+    </div>
+  </div>
+
+  <!-- CONTACT MAIN SECTION -->
+  <div class="container-contact">
+    <div class="contact-section">
+      <div class="contact-form-wrapper">
+        <h1>Get In <span class="gradient-text">Touch</span></h1>
+        <p>Have questions about our courses? Want to discuss your learning journey? We're here to help you succeed.</p>
+
+        <form class="form-grid">
+          <div class="input-group">
+            <label for="full-name">Full Name <span>*</span></label>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2m8-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <input type="text" id="full-name" name="full-name" class="input-field" placeholder="Enter your full name">
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address <span>*</span></label>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="m22 6-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email">
+          </div>
+
+          <div class="input-group">
+            <label for="phone">Phone Number <span>*</span></label>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <input type="tel" id="phone" name="phone" class="input-field" placeholder="Enter your phone number">
+          </div>
+
+          <div class="input-group">
+            <label for="subject">Subject <span>*</span></label>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <input type="text" id="subject" name="subject" class="input-field" placeholder="What's this about?">
+          </div>
+
+          <div class="input-group full-width">
+            <label for="message">Message <span>*</span></label>
+            <!-- <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="top: 2.2rem;"><path d="M12 20h9m-9-4h9m-9-4h9M3 20h.01M3 16h.01M3 12h.01M3 8h.01M3 4h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> -->
+            <textarea id="message" name="message" class="input-field"
+              placeholder="Tell us more about your inquiry..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span>Send Message</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <div class="illustration-wrapper">
+        <div class="status-badge online">Online</div>
+        <div class="status-badge response">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>Quick Response</span>
+        </div>
+        <!-- Placeholder for the complex 3D illustration -->
+        <svg class="main-svg" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:var(--primary-purple);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:var(--primary-cyan);stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <path d="M 10 40 L 100 10 L 190 40 L 190 120 L 100 150 L 10 120 Z" fill="rgba(255,255,255,0.05)" />
+          <path d="M 10 40 L 100 10 L 190 40" stroke="url(#grad1)" stroke-width="2" fill="none" />
+          <path d="M 10 40 L 10 120 L 100 150 L 190 120 L 190 40" stroke="var(--border-color)" stroke-width="1.5"
+            fill="none" />
+          <circle cx="100" cy="80" r="20" fill="url(#grad1)" />
+          <text x="88" y="88" font-family="Inter, sans-serif" font-size="20" fill="white" font-weight="bold">@</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI CHAT FEATURE -->
+  <input type="checkbox" id="ai-chat-toggle" class="ai-chat-toggle">
+  <label for="ai-chat-toggle" class="ai-chat-button">
+    <i class="fas fa-comment"></i>
+    <span></span>
+  </label>
+  <div class="ai-chat-container">
+    <div class="ai-chat-header">
+      <div class="ai-avatar">
+        <i class="fas fa-comment-dots"></i>
+      </div>
+      <div class="ai-info">
+        <h3>STRIKE AI 🔥 </h3>
+        <p class="code-vibe">Coding vibes only 🚀</p>
+      </div>
+
+      <label for="ai-chat-toggle" class="ai-close-btn">
+        <i class="fas fa-times"></i>
+      </label>
+    </div>
+    <div class="ai-chat-messages">
+      <div class="ai-message">
+        <div class="message-bubble">
+          <p>Hello and welcome to STRIKE! 🔥 I’m here to guide you through our courses and help you get started on your
+            learning journey.</p>
+          <span class="message-time">12:00 Am</span>
+        </div>
+      </div>
+      <div class="user-message">
+        <div class="message-bubble">
+          <p>Hi! Thanks. Can you tell me about the courses you offer?</p>
+          <span class="message-time">12:00 AM</span>
+        </div>
+      </div>
+      <div class="ai-message">
+        <div class="message-bubble">
+          <p>Of course! We offer premium courses in:
+            <li>
+              Data Structures & Algorithms (DSA) – Master problem-solving and coding techniques.
+            </li>
+            <li>Generative AI – Hands-on projects with AI models.</li>
+            <li>Interview Preparation – Comprehensive guidance to crack coding interviews.</li>
+          </p>
+          <span class="message-time">12:01 AM</span>
+        </div>
+      </div>
+
+      <div class="user-message">
+        <div class="message-bubble">
+          <p>Sounds amazing! How do I enroll?</p>
+          <span class="message-time">12:02 PM</span>
+        </div>
+      </div>
+      <div class="ai-message">
+        <div class="message-bubble">
+          <p>Simply select your preferred course on our platform, complete the registration, and you’ll get instant
+            access to all course materials and projects.</p>
+          <span class="message-time">12:02 PM</span>
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <div class="ai-chat-input">
+      <input type="text" placeholder="Ask me anything...">
+      <button class="ai-send-btn">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <!--frequently asked questions-->
+  <main class="faq">
+    <div class="faq-container">
+      <h1>Frequently Asked <span class="gradient-text">Questions</span></h1>
+      <p class="subtitle">Find quick answers to common questions about STRIKE and our learning experience.</p>
+
+      <details open>
+        <summary>What is STRIKE?</summary>
+        <div class="answer">
+          <p>STRIKE is a premium learning platform for coders and developers. We offer structured courses in DSA,
+            Generative AI, and Interview Preparation — designed by industry experts to help you level up your coding
+            journey.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Which courses are available on STRIKE?</summary>
+        <div class="answer">
+          <p>We currently offer courses in:
+          <ul>
+            <li>Data Structures & Algorithms (DSA)</li>
+            <li>Generative AI & Machine Learning</li>
+            <li>Interview Preparation & Coding Bootcamp</li>
+          </ul>
+          New courses are added every month to keep you ahead in tech.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I enroll in a course?</summary>
+        <div class="answer">
+          <p>To enroll, simply visit the <b>Courses</b> page, choose your desired course, and click <b>Start Paid
+              Learning</b>. After completing registration, you’ll get instant access to course content, projects, and
+            mentorship sessions.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Do I get placement support after completing a course?</summary>
+        <div class="answer">
+          <p>Yes! STRIKE provides dedicated placement support including resume building, mock interviews, and referrals
+            to top tech companies to help you land your dream job.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Who are the mentors at STRIKE?</summary>
+        <div class="answer">
+          <p>Our mentors are industry professionals and experienced developers from leading companies. They provide 1:1
+            guidance, code reviews, and project feedback to help you grow faster.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What is STRIKE AI?</summary>
+        <div class="answer">
+          <p>STRIKE AI is our AI-powered learning assistant that helps you navigate courses, answer your coding
+            questions, and guide you throughout your learning journey in real-time.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can beginners join STRIKE?</summary>
+        <div class="answer">
+          <p>Absolutely! Our courses start from fundamentals and gradually move to advanced concepts. You’ll receive
+            mentorship and hands-on projects to learn by doing.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Are there any free demo classes available?</summary>
+        <div class="answer">
+          <p>Yes, you can explore demo lectures and project walkthroughs by clicking <b>Watch Demo</b> on our homepage
+            before enrolling in any course.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How is STRIKE different from other coding platforms?</summary>
+        <div class="answer">
+          <p>STRIKE stands out with its combination of structured learning, real-world AI projects, personalized
+            mentorship, and strong community support — helping you become industry-ready, faster.</p>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="logo"> STRIKE 🔥</div>
+          <p>
+            Empowering learners with premium courses, cutting-edge AI projects, expert mentorship, and guaranteed
+            placement support.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <a href="./courses.html">Courses</a>
+          <a href="./about.html">About us</a>
+          <a href="./community.html">Community</a>
+          <a href="./contact.html">Contact</a>
+
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="https://coderarmy.in"> <i class="fas fa-laptop-code"></i></a>
+            <a href="https://www.linkedin.com/company/coderarmy"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@CoderArmy9"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/accounts/login/?next=%2Fcoder_army9%2F&source=omni_redirect"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="email-container">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" />
+          <button type="submit">Subscribe</button>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p>
+          Copyright © 2025 by Strike | All Rights Reserved.
+
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
