@@ -2518,3 +2518,277 @@ ai-chat-messages{
 
 /* ===== completed AI chat SECTION ===== */
 
+/* ======================================================== */
+/* ===== COMPLETE & RESPONSIVE CODE SNIPPET (FINAL) ===== */
+/* ======================================================== */
+
+/* --- 1. Desktop Styles (The 3D effect) --- */
+.code-snippet-wrapper {
+    perspective: 1500px; /* Enables the 3D space */
+}
+
+.code-snippet {
+    position: relative;
+    margin-top: 50px;
+    border-radius: 12px;
+    padding: 1px; /* Creates space for the animated border */
+    overflow: hidden;
+    /* The 3D tilt effect for desktop */
+    transform: rotateY(-15deg) rotateX(5deg);
+    box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease; /* Smooth transition for responsiveness */
+}
+
+/* Animated gradient border */
+.code-snippet::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 90deg at 50% 50%, var(--primary-purple), #ff55c3, #55aaff, var(--primary-purple));
+    z-index: 0;
+    animation: spin 4s linear infinite;
+}
+
+.code-snippet-inner {
+    position: relative;
+    background-color: #16161F; /* The dark inner background */
+    border-radius: 11px;
+    z-index: 1;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- Header Styles (Dots, Title, etc.) --- */
+.snippet-header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: #2a2a3a;
+    border-bottom: 1px solid var(--border-color, #2D3748);
+}
+
+.snippet-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.snippet-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.dot-red { background-color: #ff5f56; }
+.dot-yellow { background-color: #ffbd2e; }
+.dot-green { background-color: #27c93f; }
+
+.snippet-title {
+    color: var(--text-muted, #A0AEC0);
+    margin: 0 auto;
+    font-family: "Fira Code", monospace;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: #27c93f;
+}
+
+.live-indicator::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #27c93f;
+}
+
+/* --- Code Body Styles --- */
+.snippet-body {
+    padding: 1.5rem;
+    font-family: "Fira Code", monospace;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    counter-reset: line;
+}
+
+.code-line {
+    display: flex;
+}
+
+.code-line::before {
+    counter-increment: line;
+    content: counter(line);
+    margin-right: 1.5rem;
+    width: 20px;
+    text-align: right;
+    color: var(--border-color, #2D3748);
+}
+
+/* Syntax Highlighting (already in your file, kept for completeness) */
+.c-keyword { color: #c586c0; }
+.c-type { color: #4ec9b0; }
+.c-string { color: #ce9178; }
+.c-punct { color: #d4d4d4; }
+.c-number { color: #b5cea8; }
+.c-function { color: #dcdcaa; }
+
+
+/* ================================= */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* ================================= */
+
+/* --- Tablet View --- */
+@media (max-width: 1024px) {
+    .code-snippet-wrapper {
+        perspective: none; /* Disable 3D space */
+    }
+
+    .code-snippet {
+        transform: none; /* THE KEY FIX: Flatten the component */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* A simpler shadow */
+    }
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+    .snippet-body {
+        padding: 1.25rem 1rem;
+        font-size: 0.8rem; /* Make code text smaller to fit */
+        
+        /* THE KEY FIX: Adds a horizontal scrollbar *only* if the code is too wide.
+           This prevents the code from breaking your page layout. */
+        overflow-x: auto;
+    }
+
+    .code-line::before {
+        margin-right: 1rem; /* Reduce space for line numbers */
+    }
+}
+
+/* ============================================================= */
+/* ===== MEDIA QUERY FOR VERY NARROW SCREENS (e.g., 350px) ===== */
+/* ============================================================= */
+
+@media (max-width: 350px) {
+
+    /* 1. Reduce the font size of the code to prevent excessive horizontal scrolling. */
+    .snippet-body {
+        font-size: 0.75rem; /* Smaller font for more compact code */
+        padding: 1rem 0.75rem; /* Less padding on the sides and top/bottom */
+    }
+
+    /* 2. Make the header more compact. */
+    .snippet-header {
+        padding: 0.6rem 0.75rem; /* Reduced vertical and horizontal padding */
+    }
+
+    .snippet-title,
+    .live-indicator {
+        font-size: 0.7rem; /* Make header text smaller */
+    }
+
+    /* 3. Reduce the space allocated for line numbers. */
+    .code-line::before {
+        margin-right: 0.75rem; /* Tighter spacing for line numbers */
+        width: 15px; /* Give it a slightly smaller fixed width */
+    }
+
+    /* 4. Optional: Make the window control dots smaller. */
+    .snippet-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .snippet-dots {
+        gap: 0.4rem;
+    }
+}
+
+
+/* ============================================= */
+/* ===== RESPONSIVE BREAKPOINTS (Mobile -> Desktop) ===== */
+/* ============================================= */
+
+/* --- 2. VERY NARROW SCREENS (e.g., 350px) --- */
+@media (max-width: 380px) {
+    footer {
+        padding: 2.5rem 0 1.5rem 0; /* Less vertical padding */
+    }
+    
+    .footer-content {
+        gap: 2rem; /* Tighter gap between sections */
+    }
+
+    .footer-section h4 {
+        font-size: 1.1rem; /* Slightly smaller headings */
+    }
+    
+    .footer-tagline, .footer-section a {
+        font-size: 0.9rem; /* Slightly smaller text */
+    }
+}
+
+/* --- 3. TABLET LAYOUT (Switches to a 2x2 Grid) --- */
+@media (min-width: 600px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr; /* Switch to a 2x2 grid */
+        gap: 3rem;
+        text-align: left; /* Align text to the left */
+    }
+    
+    .social-links {
+        justify-content: flex-start; /* Un-center the icons */
+    }
+
+    .email-container {
+        margin: 0; /* Un-center the form */
+    }
+}
+
+/* --- 4. DESKTOP LAYOUT (Switches to the 4-Column Design) --- */
+@media (min-width: 1024px) {
+    footer {
+        padding: 5rem 0 2rem 0; /* More top padding for desktop */
+    }
+
+    .footer-content {
+        /* The classic 4-column desktop layout */
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    }
+}
+
+/* ================================= */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* ================================= */
+
+/* --- 5. Tablet & Mobile Layout --- */
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column; /* Stack the buttons */
+        align-items: center;    /* Center them */
+        width: 100%;
+        gap: 1.5rem;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 320px;
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* --- 6. VERY NARROW Mobile Layout (Your specific request for 350px) --- */
+@media (max-width: 350px) {
+    .hero-buttons {
+        gap: 1rem; /* Reduce vertical space between buttons */
+    }
+
+    .btn {
+        padding: 0.8rem;   /* Make buttons a little less tall */
+        font-size: 1rem;   /* Make text slightly smaller to fit better */
+    }
+}
