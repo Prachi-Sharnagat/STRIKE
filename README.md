@@ -7,12 +7,9 @@ This project was created as part of an **Online Hackathon Challenge**.
 
 ---
 
-## 🌐 Live Demo
+🌐 Live Deployment: https://strike-eosin.vercel.app/
 
-> Coming soon: [https://prachi-sharnagat.github.io/STRIKE](https://prachi-sharnagat.github.io/STRIKE)
-
-Once deployed using GitHub Pages, the website will be accessible at the link above.
-
+💾 Source Code:  [https://prachi-sharnagat.github.io/STRIKE](https://prachi-sharnagat.github.io/STRIKE)
 ---
 
 ## 🧩 Project Overview
