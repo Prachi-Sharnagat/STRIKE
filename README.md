@@ -1,4 +1,4 @@
-# ⚡ STRIKE – Premium Course Platform
+# 🔥 STRIKE – Premium Course Platform
 
 STRIKE is a **modern, responsive, and elegant course platform** built entirely using **HTML and CSS**.  
 It showcases structured learning, AI-driven projects, and placement support — all designed for learners who aim to grow with premium mentorship and resources.
