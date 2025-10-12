@@ -9,7 +9,8 @@ This project was created as part of an **Online Hackathon Challenge**.
 
 🌐 Live Deployment: https://strike-eosin.vercel.app/
 
-💾 Source Code:  [https://prachi-sharnagat.github.io/STRIKE](https://prachi-sharnagat.github.io/STRIKE)
+💾 Source Code: https://prachi-sharnagat.github.io/STRIKE
+
 ---
 
 ## 🧩 Project Overview
