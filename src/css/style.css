@@ -51,11 +51,6 @@ body {
   line-height: 1.6;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 
 /* .................. NAVBAR......... */
 .navbar {
@@ -70,6 +65,8 @@ body {
   
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   z-index: 100;
   transition: all 0.3s ease;
@@ -330,41 +327,35 @@ responsive navbar
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.5rem;
   }
 
   /* Position the nav menu as a slide-out panel */
   .nav-menu {
-    position: fixed;
-    /* Take it out of the document flow */
-    top: 0;
-    left: 0;
-    height: 100vh;
-    /* Full viewport height */
-    width: 70%;
-    /* Or 250px, or whatever width you prefer */
-    max-width: 300px;
-
-    /* Style the slide-out menu */
-    flex-direction: column;
-    /* Stack links vertically */
-    justify-content: center;
-    /* Center links vertically */
-    align-items: center;
-    gap: 2.5rem;
-    /* Increase space between links */
-    background: #0d0d0d;
-    /* Give it a solid background */
-
-    /* Hide it off-screen by default */
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1000;
+   height: 100vh;
+   width: 70%;
+   max-width: 300px;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start; /* MODIFIED: Aligns items to the left. */
+   padding: 0rem 3rem; 
+   background: #0d0d0d;
+   transform: translateX(-100%);
+   transition: transform 0.3s ease-in-out;
+   margin: 0;
+ }
 
   /* Make the links larger for better touch interaction */
   .nav-menu a {
     font-size: 1.2rem;
   }
+
+
+
 
   /* --- THE MAGIC PART --- */
 
@@ -461,245 +452,28 @@ responsive navbar
 /* ===== Navbar completed ===== */
 
 
-/* ===== AI CHAT FEATURE ===== */
-.ai-chat-toggle {
-  display: none;
-}
 
-.ai-chat-button {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: linear-gradient(to right, #6D55F6, #00D4FF);
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 30px rgba(138, 77, 255, 0.5);
-  z-index: 999;
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.ai-chat-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 30px rgba(138, 77, 255, 0.5);
-
-}
-
-.ai-chat-button i {
-  font-size: 1.5rem;
-  margin-bottom: 2px;
-}
-
-.ai-chat-button span {
-  font-size: 0.7rem;
-  font-weight: 600;
-}
-
-.ai-chat-container {
-  position: fixed;
-  bottom: 100px;
-  right: 30px;
-  width: 350px;
-  height: 500px;
-  /* background: rgba(30, 30, 30, 0.95); */
-
-  background: transparent;
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  z-index: 998;
-  display: flex;
-  flex-direction: column;
-  transform: translateX(400px);
-  transition: transform 0.4s ease;
-
-  border-bottom: 2px solid rgba(135, 206, 250, 0.1);
-
-  overflow: hidden;
-}
-
-.ai-chat-toggle:checked~.ai-chat-container {
-  transform: translateX(0);
-}
-
-.ai-chat-header {
-  padding: 1.2rem;
-  background: linear-gradient(to right, #1A1C2D, #1C3A4A);
-  border-bottom: 2px solid rgba(135, 206, 250, 0.1);
-
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.ai-avatar {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: linear-gradient(to right, #6D55F6, #00D4FF);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-.ai-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.2rem;
-}
-
-.ai-info p {
-  font-size: 0.8rem;
-  color: var(--text-light);
-}
-
-.ai-close-btn {
-  margin-left: auto;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s;
-}
-
-.ai-close-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.ai-chat-messages {
-  flex: 1;
-  padding: 1rem;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.ai-message,
-.user-message {
-  display: flex;
-}
-
-.ai-message {
-  justify-content: flex-start;
-}
-
-/* Hide scrollbar but still allow scrolling */
-ai-chat-messages {
-  overflow: auto;
-  /* scrolling works */
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE 10+ */
-}
-
-/* For Chrome, Safari, Edge */
-.ai-chat-messages::-webkit-scrollbar {
-  display: none;
-}
-
-.user-message {
-  justify-content: flex-end;
-}
-
-.message-bubble {
-  max-width: 80%;
-  padding: 0.8rem 1rem;
-  border-radius: 18px;
-  position: relative;
-}
-
-.ai-message .message-bubble {
-  background: #2A2D3A;
-  border-top-left-radius: 5px;
-}
-
-.user-message .message-bubble {
-  background: #7B34DD;
-  border-top-right-radius: 5px;
-}
-
-.message-bubble p {
-  font-size: 0.9rem;
-  margin-bottom: 0.3rem;
-}
-
-.message-time {
-  font-size: 0.7rem;
-  color: var(--text-light);
-  opacity: 0.7;
-}
-
-.ai-chat-input {
-  padding: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  gap: 0.5rem;
-}
-
-.ai-chat-input input {
-  flex: 1;
-  padding: 0.8rem 1rem;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.1);
-  /* background: linear-gradient(to right, #00D1FF, #00A3FF); */
-
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--light);
-  font-size: 0.9rem;
-}
-
-.ai-chat-input input:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.ai-send-btn {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: linear-gradient(to right, #6D55F6, #00D4FF);
-  /* background: linear-gradient(45deg, #00D1FF, #00A3FF); */
-
-  color: white;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s;
-}
-
-.ai-send-btn:hover {
-  transform: scale(1.1);
-}
 
 .code-vibe {
   color: skyblue;
 }
 
-/* ===== completed AI chat SECTION ===== */
+
 
 /* ===== ENHANCED HERO SECTION ===== */
 .hero {
   background: radial-gradient(circle at top right, #1a1a1a, #000);
+  width: 100vw;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 10%;
   position: relative;
+  top:0;
+left: 50%;
+  right: 0;
+  transform: translateX(-50%);
   overflow: hidden;
   background-image:
     linear-gradient(to bottom,
@@ -711,12 +485,15 @@ ai-chat-messages {
       /* Solid at bottom */
     ),
     url('../assets/hero-bg.jpg');
-  background-size: 105%;
-  background-position: center;
+  background-size: 100% auto ;
+  background-position: center center;
+   /* background-position: center center; */
   background-repeat: no-repeat;
 
   margin-bottom: 40px;
 
+   background-attachment: scroll; 
+  margin: 0;
 }
 
 .hero-content {
@@ -969,6 +746,14 @@ ai-chat-messages {
   font-size: 0.9rem;
   line-height: 1.7;
   counter-reset: line;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
 }
 
 .code-line {
@@ -1567,254 +1352,280 @@ ai-chat-messages {
 
 
 
-/* ===== ENHANCED FOOTER ===== */
-footer {
-  background: var(--darker);
-  color: var(--text-light);
-  padding: 3rem 0 1rem;
-}
+/*
+time dicount
+        */
 
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
 
-}
+/* 
+.discount {
 
-.footer-section h4 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.footer-section a {
-  display: block;
-  color: var(--text-light);
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
-
-}
-
-.footer-section a:hover {
-  color: var(--primary);
-}
-
-.social-links {
   display: flex;
-  gap: 2rem;
-  font-size: 32px;
-}
-
-.social-link {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  position: relative;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+} */
+
+/* --- Corrected Code --- */
+.discount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* REMOVED: min-height: 100vh; */
+    
+    /* MODIFIED: Use padding for controlled spacing from the header and content below */
+    padding: 6rem 2rem;
 }
 
-.social-link:hover {
-  background: var(--primary);
-  transform: translateY(-5px);
-}
-
-.social-link.twitter::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle at 30% 30%,
-      currentColor 3px,
-      transparent 3px),
-    radial-gradient(circle at 70% 30%, currentColor 3px, transparent 3px),
-    linear-gradient(45deg,
-      transparent 40%,
-      currentColor 40%,
-      currentColor 60%,
-      transparent 60%),
-    linear-gradient(-45deg,
-      transparent 40%,
-      currentColor 40%,
-      currentColor 60%,
-      transparent 60%);
-  background-size: 100% 100%, 100% 100%, 50% 50%, 50% 50%;
-  background-position: 0 0, 0 0, 0 100%, 100% 100%;
-  background-repeat: no-repeat;
-}
-
-.social-link.linkedin::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(90deg,
-      currentColor 33%,
-      transparent 33%,
-      transparent 66%,
-      currentColor 66%),
-    linear-gradient(90deg,
-      currentColor 33%,
-      transparent 33%,
-      transparent 66%,
-      currentColor 66%),
-    linear-gradient(90deg,
-      currentColor 33%,
-      transparent 33%,
-      transparent 66%,
-      currentColor 66%);
-  background-size: 100% 33%;
-  background-position: 0 0, 0 50%, 0 100%;
-  background-repeat: no-repeat;
-}
-
-.social-link.github::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, currentColor 40%, transparent 40%),
-    linear-gradient(45deg,
-      transparent 40%,
-      currentColor 40%,
-      currentColor 60%,
-      transparent 60%),
-    linear-gradient(-45deg,
-      transparent 40%,
-      currentColor 40%,
-      currentColor 60%,
-      transparent 60%);
-  background-size: 100% 100%, 50% 50%, 50% 50%;
-  background-position: 0 0, 0 0, 100% 0;
-  background-repeat: no-repeat;
-}
-
-.footer-bottom {
+.offer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding-top: 2rem;
-  border-bottom: 1px solid rgba(135, 206, 250, 0.1);
+  max-width: 600px;
+} 
+ /* Make sure this is in your base CSS, NOT inside a media query */
+
+
+.rocket-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 2rem;
+  animation: float 3s ease-in-out infinite;
 }
 
-.email-input {
-  flex: 1;
-  padding: 0.8rem 1.5rem;
-  border: 2px solid rgba(255, 102, 0, 0.3);
-  border-radius: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--light);
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.main-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.sub-heading {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0 0 3rem 0;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.time-unit {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-unit svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  /* Start the circle from the top */
+  animation: spin linear infinite;
+  /* Added animation */
+}
+
+/* MODIFIED: Reduced animation durations for a faster effect */
+.countdown-timer .time-unit:nth-child(1) svg {
+  animation-duration: 10s;
+}
+
+.countdown-timer .time-unit:nth-child(2) svg {
+  animation-duration: 8s;
+}
+
+.countdown-timer .time-unit:nth-child(3) svg {
+  animation-duration: 6s;
+}
+
+.countdown-timer .time-unit:nth-child(4) svg {
+  animation-duration: 4s;
+}
+
+/* Added keyframes for the rotation animation */
+@keyframes spin {
+  from {
+    transform: rotate(-90deg);
+  }
+
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+.time-unit .timer-track {
+  fill: none;
+  stroke: var(--timer-track);
+  stroke-width: 6;
+}
+
+.time-unit .timer-progress {
+  fill: none;
+  stroke: var(--primary-blue);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  /* Circumference of a 90-radius circle (2 * PI * 45) */
+  stroke-dashoffset: 283;
+  /* Initially empty */
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.time-unit .time-value {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  line-height: 1;
+}
+
+.time-unit .time-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  /* Ensure label is on top of SVG */
+  z-index: 1;
+}
+
+.unlock-button {
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 50px;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  color: var(--text-primary);
+  /* Added a third color stop and increased background size for the hover effect */
+
+
+  background-size: 200% auto;
+  cursor: pointer;
+  /* Added background-position to the transition */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease;
+  box-shadow: 0 5px 20px var(--glow-color);
+  /* background: linear-gradient(135deg, #8e2de2, #4a00e0, #1e3cfa); */
+  background: linear-gradient(90deg, #00D1FF, #00A3FF, #4F00FF);
+  box-shadow: 0 6px 15px rgba(30, 60, 250, 0.4);
 }
 
-.email-input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+.unlock-button:hover {
+  /* Added scale and more prominent, colorful shadow */
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px var(--glow-color), 0 0 25px var(--glow-color-purple);
+  background-position: right center;
+  /* This shifts the gradient on hover */
 }
 
-.email-input::placeholder {
-  color: var(--text-light);
+/* --- MERGED AND CORRECTED MOBILE STYLES --- */
+@media (max-width: 480px) {
+    .offer-section {
+        max-width: 100%;
+    }
+
+    .main-heading {
+        font-size: 2rem;
+    }
+    
+    .sub-heading {
+        font-size: 1rem;
+    }
+
+    .countdown-timer {
+        gap: 1rem;
+        /* This forces the 2x2 grid */
+        max-width: 210px; 
+        /* This explicitly centers the now-narrow grid container */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .time-unit {
+        /* Using the 85px value from your intended fix */
+        width: 85px;
+        height: 85px;
+         margin-bottom: 1rem
+    }
+
+    .time-unit .timer-progress {
+        /* Recalculated circumference for 85px box */
+        stroke-dasharray: 248;
+    }
+
+    .time-unit .time-value {
+        font-size: 2rem;
+    }
+    
+    .unlock-button {
+        padding: 0.9rem 2.5rem;
+        font-size: 0.9rem;
+    }
+
+    .countdown-timer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 200px;
+  }
+
+  .time-unit {
+    width: 85px;
+    height: 85px;
+    margin-bottom: 0; /* grid handles spacing */
+  }
+
+
+    
 }
 
 
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 1024px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding-top: 100px;
-  }
 
-  .hero-content,
-  .hero-visual {
-    max-width: 100%;
-  }
-
-  .intro-content {
-    flex-direction: column;
-  }
-
-  .intro-visual {
-    height: 300px;
-    margin-top: 2rem;
-  }
-
-  .roadmap-track {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .roadmap-track::before {
-    display: none;
-  }
-
-  .roadmap-item {
-    padding: 1rem;
-    border-left: 3px solid var(--primary);
-  }
-
-  .mentor-card-wrapper {
-    padding: 0 1rem;
-  }
-
-  .mentor-card {
-    height: 500px;
-  }
-
-  .countdown {
-    gap: 1.5rem;
-  }
-
-  .countdown-circle {
-    width: 100px;
-    height: 100px;
-  }
-
-  .countdown-svg {
-    width: 100px;
-    height: 100px;
-  }
-
-  .countdown-number {
-    font-size: 1.8rem;
-  }
-
-  .animated-cube {
-    width: 220px;
-    height: 220px;
-  }
-
-  .cube-face {
-    width: 220px;
-    height: 220px;
-  }
-
-  .front {
-    transform: translateZ(110px);
-  }
-
-  .back {
-    transform: translateZ(-110px) rotateY(180deg);
-  }
-
-  .right {
-    transform: rotateY(90deg) translateZ(110px);
-  }
-
-  .left {
-    transform: rotateY(-90deg) translateZ(110px);
-  }
-
-  .top {
-    transform: rotateX(90deg) translateZ(110px);
-  }
-
-  .bottom {
-    transform: rotateX(-90deg) translateZ(110px);
+@media (max-width: 480px) {
+  .time-unit svg {
+    animation: none !important;
   }
 }
+
+@media (max-width: 480px) {
+  .time-unit svg {
+    display: none !important;
+  }
+}
+
+
+
+/* completed discount
+*/
+
+
 
 @media (max-width: 768px) {
   .hero-content h1 {
@@ -1836,6 +1647,7 @@ footer {
     flex-direction: column;
     gap: 0;
     margin-top: 1rem;
+     margin-top: auto
   }
 
   .nav-toggle:checked~.nav-menu {
@@ -1853,45 +1665,10 @@ footer {
     justify-content: center;
   }
 
-  .waitlist-form {
-    flex-direction: column;
-  }
-
-  .mentor-card {
-    height: 450px;
-  }
-
-  .mentor-image {
-    width: 140px;
-    height: 140px;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .countdown {
-    gap: 1rem;
-  }
-
-  .countdown-circle {
-    width: 80px;
-    height: 80px;
-  }
-
-  .countdown-svg {
-    width: 80px;
-    height: 80px;
-  }
-
-  .countdown-number {
-    font-size: 1.5rem;
-  }
-
-  .countdown-label {
-    font-size: 0.7rem;
-  }
-
+  
+ 
+ 
+  
   .ai-chat-container {
     width: 300px;
     height: 450px;
@@ -1899,43 +1676,6 @@ footer {
     bottom: 90px;
   }
 
-  .animated-cube {
-    width: 180px;
-    height: 180px;
-  }
-
-  .cube-face {
-    width: 180px;
-    height: 180px;
-  }
-
-  .front {
-    transform: translateZ(90px);
-  }
-
-  .back {
-    transform: translateZ(-90px) rotateY(180deg);
-  }
-
-  .right {
-    transform: rotateY(90deg) translateZ(90px);
-  }
-
-  .left {
-    transform: rotateY(-90deg) translateZ(90px);
-  }
-
-  .top {
-    transform: rotateX(90deg) translateZ(90px);
-  }
-
-  .bottom {
-    transform: rotateX(-90deg) translateZ(90px);
-  }
-
-  .code-content {
-    font-size: 0.6rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1952,117 +1692,7 @@ footer {
 
 }
 
-/* --- Base Styles (Mobile First Approach) --- */
-.email-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  /* A slightly smaller gap for mobile */
-  width: 100%;
-  /* Take up all available horizontal space */
-  max-width: 400px;
-  /* Set a max-width for larger screens */
-  margin-top: 2px;
-  /* Use auto for left/right margins to center it within its parent */
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  background-color: transparent;
-  font-size: 1.1rem;
-  /* Slightly adjusted base font size for readability */
-  font-family: Arial, sans-serif;
-  box-sizing: border-box;
-  /* Ensures padding doesn't add to the width */
-}
 
-.email-container label {
-  font-weight: 600;
-  color: var(--primary);
-}
-
-.email-container input {
-  padding: 12px;
-  /* A bit more padding for easier tapping on mobile */
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font-size: 1rem;
-  /* Using rem for better scalability */
-  outline: none;
-  transition: border-color 0.3s ease;
-  background: var(--input-bg);
-}
-
-.email-container input:focus {
-  border-color: #4F00FF;
-}
-
-.email-container button {
-  padding: 12px;
-  /* Match the input padding */
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(90deg, #00D1FF 0%, #00A3FF 70%, #4F00FF 100%);
-  color: white;
-  font-weight: 700;
-  font-size: 1rem;
-  /* Consistent font size */
-  cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.email-container button:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-
-/* --- Desktop and Larger Screen Styles --- */
-/* We use min-width for a desktop-first override */
-@media (min-width: 768px) {
-  .email-container {
-    width: 300px;
-    /* Restore the fixed width for desktop */
-    margin-left: 60px;
-    /* Restore the specific margin for desktop layout */
-    margin-right: 0;
-    /* Remove the auto margin */
-    gap: 20px;
-    /* Restore the original gap */
-    font-size: 1.2rem;
-    /* Restore original font size */
-  }
-
-  .email-container input,
-  .email-container button {
-    padding: 10px;
-    /* Revert to original padding */
-    font-size: 16px;
-    /* Revert to original font size */
-  }
-}
-
-/* Note: The .footer-content rule from your original code was removed
-  as its base styles were not provided. You can add it back in a
-  similar mobile-first pattern.
-*/
-
-
-input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 80px;
-  width: 80px;
-  z-index: 100;
-}
-
-.input-logo[type="checkbox"]:checked~.glow {
-  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
-    inset 4px 4px 6px rgba(0, 0, 0, 0.2);
-  color: yellow;
-  text-shadow: 0 0 15px yellow, 0 0 25px yellow;
-  animation: glow 1.5s linear infinite;
-}
 
 
 
@@ -2320,199 +1950,571 @@ why-learn-section {
 }
 
 
-/*
-time dicount
-        */
+/* ======================================================= */
+/* ===== COMPLETE & RESPONSIVE FOOTER (COPY ALL THIS) ===== */
+/* ======================================================= */
 
+/* --- 1. Main Footer & Container Styles --- */
+footer {
+    background: var(--darker, #0d0d0d);
+    color: var(--text-light, #f0f0f0);
+    padding: 1.75rem 0 0.5rem 0; /* Generous top padding */
+    /* width: 100%; */
+    box-sizing: border-box; 
+    
+      background: var(--darker);
+  color: var(--text-light);
+  /* padding: 1rem 0 1rem; */
+  width: 100vw;
 
-
-.discount {
-
-  display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 2rem;
-}
-
-.offer-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 600px;
-}
-
-.rocket-icon {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 2rem;
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.main-heading {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-}
-
-.sub-heading {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  margin: 0 0 3rem 0;
-}
-
-.countdown-timer {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-
-.time-unit {
+  /* justify-content: space-between; */
+  /* padding: 0 10%; */
   position: relative;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  top:0;
+left: 50%;
+  right: 0;
+  transform: translateX(-50%);
+  overflow: hidden;/* Ensures padding is included in width */
 }
 
-.time-unit svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-  /* Start the circle from the top */
-  animation: spin linear infinite;
-  /* Added animation */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Side padding for content */
 }
 
-/* MODIFIED: Reduced animation durations for a faster effect */
-.countdown-timer .time-unit:nth-child(1) svg {
-  animation-duration: 10s;
+/* --- 2. Desktop Layout (4 Columns) --- */
+.footer-content {
+    display: grid;
+    /* Explicitly create 4 columns for desktop */
+    grid-template-columns: 2fr 1fr 1fr 1.5fr; 
+    gap: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.countdown-timer .time-unit:nth-child(2) svg {
-  animation-duration: 8s;
+.footer-section h4 {
+    color: var(--primary, #00D1FF);
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
 }
 
-.countdown-timer .time-unit:nth-child(3) svg {
-  animation-duration: 6s;
+
+.footer-section pre {
+    /* color: var(--text-secondary, #ccc); */
+    line-height: 2;
+    margin: 0;
+    font-size: medium;
 }
 
-.countdown-timer .time-unit:nth-child(4) svg {
-  animation-duration: 4s;
+.footer-section a {
+    display: block;
+    color: var(--text-light, #f0f0f0);
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
 }
 
-/* Added keyframes for the rotation animation */
-@keyframes spin {
-  from {
-    transform: rotate(-90deg);
-  }
-
-  to {
-    transform: rotate(270deg);
-  }
+.footer-section a:hover {
+    color: var(--primary, #00D1FF);
 }
 
-.time-unit .timer-track {
-  fill: none;
-  stroke: var(--timer-track);
-  stroke-width: 6;
-}
-
-.time-unit .timer-progress {
-  fill: none;
-  stroke: var(--primary-blue);
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-dasharray: 283;
-  /* Circumference of a 90-radius circle (2 * PI * 45) */
-  stroke-dashoffset: 283;
-  /* Initially empty */
-  transition: stroke-dashoffset 0.5s ease;
-}
-
-.time-unit .time-value {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: var(--primary-blue);
-  line-height: 1;
-}
-
-.time-unit .time-label {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  margin-top: 0.25rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  /* Ensure label is on top of SVG */
-  z-index: 1;
-}
-
-.unlock-button {
-  padding: 1rem 3rem;
-  border: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  /* Added a third color stop and increased background size for the hover effect */
-
-
-  background-size: 200% auto;
-  cursor: pointer;
-  /* Added background-position to the transition */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease;
-  box-shadow: 0 5px 20px var(--glow-color);
-  /* background: linear-gradient(135deg, #8e2de2, #4a00e0, #1e3cfa); */
-  background: linear-gradient(90deg, #00D1FF, #00A3FF, #4F00FF);
-  box-shadow: 0 6px 15px rgba(30, 60, 250, 0.4);
-}
-
-.unlock-button:hover {
-  /* Added scale and more prominent, colorful shadow */
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 30px var(--glow-color), 0 0 25px var(--glow-color-purple);
-  background-position: right center;
-  /* This shifts the gradient on hover */
-}
-
-@media(max-width: 480px) {
-  .main-heading {
-    font-size: 2rem;
-  }
-
-  .countdown-timer {
+.social-links {
+    display: flex;
     gap: 1rem;
+    align-items: center;
+}
+
+.social-links a i {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover i {
+    transform: scale(1.2);
+    color: var(--primary, #00D1FF);
+}
+
+/* --- 3. Email Form --- */
+.email-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.email-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color, #333);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light, #f0f0f0);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.email-input:focus {
+    outline: none;
+    border-color: var(--primary-purple, #4F00FF);
+    box-shadow: 0 0 0 3px rgba(79, 0, 255, 0.3);
+}
+
+.email-container button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #00D1FF, #00A3FF, #4F00FF);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.email-container button:hover {
+    transform: scale(1.03);
+}
+
+/* --- 4. Footer Bottom (Copyright) --- */
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color, #333);
+    color: var(--text-secondary, #ccc);
+}
+
+
+
+.email-input {
+  flex: 1;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid rgba(255, 102, 0, 0.3);
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+}
+
+.email-input::placeholder {
+  color: var(--text-light);
+}
+
+
+/* --- Base Styles (Mobile First Approach) --- */
+.email-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* A slightly smaller gap for mobile */
+  width: 100%;
+  /* Take up all available horizontal space */
+  max-width: 400px;
+  /* Set a max-width for larger screens */
+  margin-top: 2px;
+  /* Use auto for left/right margins to center it within its parent */
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background-color: transparent;
+  font-size: 1.1rem;
+  /* Slightly adjusted base font size for readability */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  /* Ensures padding doesn't add to the width */
+}
+
+.email-container label {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.email-container input {
+  padding: 12px;
+  /* A bit more padding for easier tapping on mobile */
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 1rem;
+  /* Using rem for better scalability */
+  outline: none;
+  transition: border-color 0.3s ease;
+  background: var(--input-bg);
+}
+
+.email-container input:focus {
+  border-color: #4F00FF;
+}
+
+.email-container button {
+  padding: 12px;
+  /* Match the input padding */
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #00D1FF 0%, #00A3FF 70%, #4F00FF 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  /* Consistent font size */
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.email-container button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 80px;
+  width: 80px;
+  z-index: 100;
+}
+
+
+/* ================================= */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* ================================= */
+
+/* --- 5. Tablet Layout (2x2 Grid) --- */
+@media (max-width: 992px) {
+    footer {
+        padding: 4rem 0 2rem 0; /* Slightly less padding */
+    }
+
+    .footer-content {
+        /* Switch to a balanced 2-column grid */
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- 6. Mobile Layout (Single Column) --- */
+@media (max-width: 640px) {
+    footer {
+        padding: 3rem 0 1.5rem 0; /* Even less padding to reduce space */
+    }
+
+    .footer-content {
+        /* Stack everything into a single, centered column */
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem; /* Reduce gap for a more compact look */
+        margin-bottom: 2.5rem;
+    }
+    
+    .footer-bottom {
+        padding-top: 1.5rem;
+    }
+
+    .social-links {
+        /* Center the icons within their container */
+        justify-content: center;
+    }
+    
+    .email-container {
+        /* Center the form */
+        margin: 0 auto;
+        max-width: 350px;
+    }
+}
+
+
+/* ================================= */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* ================================= */
+
+/* --- 3. TABLET LAYOUT (Switches to 2x2 Grid) --- */
+@media (min-width: 641px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr; /* Create a 2x2 grid */
+        text-align: left; /* Align text to the left */
+    }
+
+    /* We no longer need the flexbox grouping, so we reset it */
+    .footer-links-group {
+        display: contents; /* This makes the wrapper "disappear" and its children become direct grid items */
+    }
+
+    .email-container {
+        margin: 0; /* Un-center the form */
+    }
+
+    .social-links {
+        justify-content: flex-start; /* Align icons left */
+    }
+}
+
+/* --- 4. DESKTOP LAYOUT (Switches to 4-Column) --- */
+@media (min-width: 993px) {
+    .footer-content {
+        grid-template-columns: 2fr 1fr 1fr 1.5fr; /* Your original desktop layout */
+    }
+}
+
+/* ===== AI CHAT FEATURE ===== */
+.ai-chat-toggle {
+  display: none;
+}
+
+.ai-chat-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(to right, #6D55F6, #00D4FF);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 30px rgba(138, 77, 255, 0.5);
+  z-index: 999;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.ai-chat-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 30px rgba(138, 77, 255, 0.5);
+
+}
+
+.ai-chat-button i {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+}
+
+.ai-chat-button span {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.ai-chat-container {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 350px;
+  height: 500px;
+  /* background: rgba(30, 30, 30, 0.95); */
+
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(400px);
+  transition: transform 0.4s ease;
+
+  border-bottom: 2px solid rgba(135, 206, 250, 0.1);
+
+  overflow: hidden;
+}
+
+.ai-chat-toggle:checked~.ai-chat-container {
+  transform: translateX(0);
+}
+
+.ai-chat-header {
+  padding: 1.2rem;
+  background: linear-gradient(to right, #1A1C2D, #1C3A4A);
+  border-bottom: 2px solid rgba(135, 206, 250, 0.1);
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ai-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #6D55F6, #00D4FF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.ai-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.ai-info p {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.ai-close-btn {
+  margin-left: auto;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.ai-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ai-chat-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+ai-chat-messages{
+  overflow: auto; /* scrolling works */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* For Chrome, Safari, Edge */
+.ai-chat-messages::-webkit-scrollbar {
+  display: none;
+}
+.ai-message,
+.user-message {
+  display: flex;
+}
+
+.ai-message {
+  justify-content: flex-start;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.message-bubble {
+  max-width: 80%;
+  padding: 0.8rem 1rem;
+  border-radius: 18px;
+  position: relative;
+}
+
+.ai-message .message-bubble {
+  background: #2A2D3A;
+  border-top-left-radius: 5px;
+}
+
+.user-message .message-bubble {
+  background: #7B34DD;
+  border-top-right-radius: 5px;
+}
+
+.message-bubble p {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.message-time {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  opacity: 0.7;
+}
+
+.ai-chat-input {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ai-chat-input input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  /* background: linear-gradient(to right, #00D1FF, #00A3FF); */
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--light);
+  font-size: 0.9rem;
+}
+
+.ai-chat-input input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.ai-send-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #6D55F6, #00D4FF);
+  /* background: linear-gradient(45deg, #00D1FF, #00A3FF); */
+
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.ai-send-btn:hover {
+  transform: scale(1.1);
+}
+
+.code-vibe {
+  color: skyblue;
+}
+
+
+
+  .hero-buttons {
+    justify-content: center;
   }
 
-  .time-unit {
-    width: 80px;
-    height: 80px;
+
+
+  .ai-chat-container {
+    width: 300px;
+    height: 450px;
+    right: 20px;
+    bottom: 90px;
   }
 
-  .time-unit .time-value {
+  .animated-cube {
+    width: 180px;
+    height: 180px;
+  }
+
+
+
+@media (max-width: 480px) {
+  .hero-content h1 {
     font-size: 2rem;
   }
+  .ai-chat-container {
+    width: 280px;
+    height: 400px;
+    right: 10px;
+    bottom: 80px;
+  }
 }
+
+/* ===== completed AI chat SECTION ===== */
+

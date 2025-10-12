@@ -55,6 +55,8 @@ body {
   backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
+   left: 0;
+  right: 0;
   width: 100%;
   z-index: 100;
   transition: all 0.3s ease;
@@ -308,23 +310,22 @@ responsive navbar
 
   /* Position the nav menu as a slide-out panel */
   .nav-menu {
-    position: fixed; /* Take it out of the document flow */
-    top: 0;
-    left: 0;
-    height: 100vh; /* Full viewport height */
-    width: 70%; /* Or 250px, or whatever width you prefer */
-    max-width: 300px;
-    
-    /* Style the slide-out menu */
-    flex-direction: column; /* Stack links vertically */
-    justify-content: center; /* Center links vertically */
-    align-items: center;
-    gap: 2.5rem; /* Increase space between links */
-    background: #0d0d0d; /* Give it a solid background */
-    
-    /* Hide it off-screen by default */
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+     position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1000;
+   height: 100vh;
+   width: 70%;
+   max-width: 300px;
+   flex-direction: column;
+  
+   /* justify-content: ; */
+   /* align-items: flex-start; MODIFIED: Aligns items to the left. */
+   padding: 1rem 3rem 0 0 ; 
+   background: #0d0d0d;
+   transform: translateX(-100%);
+   transition: transform 0.3s ease-in-out;
+   margin: 0;
   }
   
   /* Make the links larger for better touch interaction */
@@ -424,6 +425,73 @@ responsive navbar
   transform: scale(1.05);
 }
 /* ===== Navbar completed ===== */
+
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle-label {
+    display: flex;
+    /* margin-left: 15px; */
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1rem;
+     margin-top: auto
+  }
+
+  .nav-toggle:checked~.nav-menu {
+    display: flex;
+  }
+
+  nav a {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(135, 206, 250, 0.1);
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  
+ 
+ 
+  
+  .ai-chat-container {
+    width: 300px;
+    height: 450px;
+    right: 20px;
+    bottom: 90px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .ai-chat-container {
+    width: 280px;
+    height: 400px;
+    right: 10px;
+    bottom: 80px;
+  }
+
+}
+
 
 
 /* --- CORRECTED AND COMBINED RULE --- */
@@ -868,306 +936,12 @@ ai-chat-messages{
 }
 
 
-footer {
-  background: var(--darker);
-  color: var(--text-light);
-  padding: 3rem 0 1rem;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-
-}
-
-.footer-section h4 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.footer-section a {
-  display: block;
-  color: var(--text-light);
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
-
-}
-
-.footer-section a:hover {
-  color: var(--primary);
-}
-
-.social-links {
-  display: flex;
-  gap: 2rem;
-  font-size: 32px;
-}
-
-.social-link {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.social-link:hover {
-  background: var(--primary);
-  transform: translateY(-5px);
-}
-
-.social-link.twitter::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle at 30% 30%,
-      currentColor 3px,
-      transparent 3px),
-    radial-gradient(circle at 70% 30%, currentColor 3px, transparent 3px),
-    linear-gradient(45deg,
-      transparent 40%,
-      currentColor 40%,
-      currentColor 60%,
-      transparent 60%),
-    linear-gradient(-45deg,
-      transparent 40%,
-      currentColor 40%,
-      currentColor 60%,
-      transparent 60%);
-  background-size: 100% 100%, 100% 100%, 50% 50%, 50% 50%;
-  background-position: 0 0, 0 0, 0 100%, 100% 100%;
-  background-repeat: no-repeat;
-}
-
-.social-link.linkedin::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(90deg,
-      currentColor 33%,
-      transparent 33%,
-      transparent 66%,
-      currentColor 66%),
-    linear-gradient(90deg,
-      currentColor 33%,
-      transparent 33%,
-      transparent 66%,
-      currentColor 66%),
-    linear-gradient(90deg,
-      currentColor 33%,
-      transparent 33%,
-      transparent 66%,
-      currentColor 66%);
-  background-size: 100% 33%;
-  background-position: 0 0, 0 50%, 0 100%;
-  background-repeat: no-repeat;
-}
-
-.social-link.github::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, currentColor 40%, transparent 40%),
-    linear-gradient(45deg,
-      transparent 40%,
-      currentColor 40%,
-      currentColor 60%,
-      transparent 60%),
-    linear-gradient(-45deg,
-      transparent 40%,
-      currentColor 40%,
-      currentColor 60%,
-      transparent 60%);
-  background-size: 100% 100%, 50% 50%, 50% 50%;
-  background-position: 0 0, 0 0, 100% 0;
-  background-repeat: no-repeat;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 2rem;
-  border-bottom: 1px solid rgba(135, 206, 250, 0.1);
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 1024px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding-top: 100px;
-  }
-
-  .hero-content,
-  .hero-visual {
-    max-width: 100%;
-  }
-
-  .intro-content {
-    flex-direction: column;
-  }
-
-  .intro-visual {
-    height: 300px;
-    margin-top: 2rem;
-  }
-
-  .roadmap-track {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .roadmap-track::before {
-    display: none;
-  }
-
-  .roadmap-item {
-    padding: 1rem;
-    border-left: 3px solid var(--primary);
-  }
-
-  .mentor-card-wrapper {
-    padding: 0 1rem;
-  }
-
-  .mentor-card {
-    height: 500px;
-  }
-
-  .countdown {
-    gap: 1.5rem;
-  }
-
-  .countdown-circle {
-    width: 100px;
-    height: 100px;
-  }
-
-  .countdown-svg {
-    width: 100px;
-    height: 100px;
-  }
-
-  .countdown-number {
-    font-size: 1.8rem;
-  }
-
-  .animated-cube {
-    width: 220px;
-    height: 220px;
-  }
-
-  .cube-face {
-    width: 220px;
-    height: 220px;
-  }
-
-  .front {
-    transform: translateZ(110px);
-  }
-
-  .back {
-    transform: translateZ(-110px) rotateY(180deg);
-  }
-
-  .right {
-    transform: rotateY(90deg) translateZ(110px);
-  }
-
-  .left {
-    transform: rotateY(-90deg) translateZ(110px);
-  }
-
-  .top {
-    transform: rotateX(90deg) translateZ(110px);
-  }
-
-  .bottom {
-    transform: rotateX(-90deg) translateZ(110px);
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
-  .navbar {
-    flex-wrap: wrap;
-  }
-
-  .nav-toggle-label {
-    display: flex;
-  }
-
-  .nav-menu {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 1rem;
-  }
-
-  .nav-toggle:checked~.nav-menu {
-    display: flex;
-  }
-
-  nav a {
-    padding: 1rem;
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid rgba(135, 206, 250, 0.1);
-  }
 
   .hero-buttons {
     justify-content: center;
   }
 
-  .waitlist-form {
-    flex-direction: column;
-  }
 
-  .mentor-card {
-    height: 450px;
-  }
-
-  .mentor-image {
-    width: 140px;
-    height: 140px;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .countdown {
-    gap: 1rem;
-  }
-
-  .countdown-circle {
-    width: 80px;
-    height: 80px;
-  }
-
-  .countdown-svg {
-    width: 80px;
-    height: 80px;
-  }
-
-  .countdown-number {
-    font-size: 1.5rem;
-  }
-
-  .countdown-label {
-    font-size: 0.7rem;
-  }
 
   .ai-chat-container {
     width: 300px;
@@ -1181,231 +955,19 @@ footer {
     height: 180px;
   }
 
-  .cube-face {
-    width: 180px;
-    height: 180px;
-  }
 
-  .front {
-    transform: translateZ(90px);
-  }
-
-  .back {
-    transform: translateZ(-90px) rotateY(180deg);
-  }
-
-  .right {
-    transform: rotateY(90deg) translateZ(90px);
-  }
-
-  .left {
-    transform: rotateY(-90deg) translateZ(90px);
-  }
-
-  .top {
-    transform: rotateX(90deg) translateZ(90px);
-  }
-
-  .bottom {
-    transform: rotateX(-90deg) translateZ(90px);
-  }
-
-  .code-content {
-    font-size: 0.6rem;
-  }
-}
 
 @media (max-width: 480px) {
   .hero-content h1 {
     font-size: 2rem;
   }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-
-  .mentor-card-wrapper {
-    padding: 0 0.5rem;
-  }
-
-  .mentor-card {
-    height: 400px;
-  }
-
-  .card-front,
-  .card-back {
-    padding: 1.5rem;
-  }
-
-  .mentor-image {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 1.5rem;
-  }
-
-  .mentor-info h3 {
-    font-size: 1.5rem;
-  }
-
-  .mentor-stats {
-    gap: 1rem;
-  }
-
-  .countdown {
-    gap: 0.5rem;
-  }
-
-  .countdown-circle {
-    width: 70px;
-    height: 70px;
-  }
-
-  .countdown-svg {
-    width: 70px;
-    height: 70px;
-  }
-
-  .countdown-number {
-    font-size: 1.3rem;
-  }
-
-  .countdown-label {
-    font-size: 0.6rem;
-  }
-
   .ai-chat-container {
     width: 280px;
     height: 400px;
     right: 10px;
     bottom: 80px;
   }
-
-  .animated-cube {
-    width: 150px;
-    height: 150px;
-  }
-
-  .cube-face {
-    width: 150px;
-    height: 150px;
-  }
-
-  .front {
-    transform: translateZ(75px);
-  }
-
-  .back {
-    transform: translateZ(-75px) rotateY(180deg);
-  }
-
-  .right {
-    transform: rotateY(90deg) translateZ(75px);
-  }
-
-  .left {
-    transform: rotateY(-90deg) translateZ(75px);
-  }
-
-  .top {
-    transform: rotateX(90deg) translateZ(75px);
-  }
-
-  .bottom {
-    transform: rotateX(-90deg) translateZ(75px);
-  }
-
-  .code-content {
-    font-size: 0.5rem;
-  }
 }
-
-
-/* --- Base Styles (Mobile First Approach) --- */
-.email-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* A slightly smaller gap for mobile */
-  width: 100%; /* Take up all available horizontal space */
-  max-width: 400px; /* Set a max-width for larger screens */
-  margin-top: 2px;
-  /* Use auto for left/right margins to center it within its parent */
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  background-color: transparent;
-  font-size: 1.1rem; /* Slightly adjusted base font size for readability */
-  font-family: Arial, sans-serif;
-  box-sizing: border-box; /* Ensures padding doesn't add to the width */
-}
-
-.email-container label {
-  font-weight: 600;
-  color: var(--primary);
-}
-
-.email-container input {
-  padding: 12px; /* A bit more padding for easier tapping on mobile */
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font-size: 1rem; /* Using rem for better scalability */
-  outline: none;
-  transition: border-color 0.3s ease;
-  background: var(--input-bg);
-}
-
-.email-container input:focus {
-  border-color: #4F00FF;
-}
-
-.email-container button {
-  padding: 12px; /* Match the input padding */
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(90deg, #00D1FF 0%, #00A3FF 70%, #4F00FF 100%);
-  color: white;
-  font-weight: 700;
-  font-size: 1rem; /* Consistent font size */
-  cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.email-container button:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-
-/* --- Desktop and Larger Screen Styles --- */
-/* We use min-width for a desktop-first override */
-@media (min-width: 768px) {
-  .email-container {
-    width: 300px; /* Restore the fixed width for desktop */
-    margin-left: 60px; /* Restore the specific margin for desktop layout */
-    margin-right: 0; /* Remove the auto margin */
-    gap: 20px; /* Restore the original gap */
-    font-size: 1.2rem; /* Restore original font size */
-  }
-
-  .email-container input, .email-container button {
-    padding: 10px; /* Revert to original padding */
-    font-size: 16px; /* Revert to original font size */
-  }
-}
-
-/* Note: The .footer-content rule from your original code was removed
-  as its base styles were not provided. You can add it back in a
-  similar mobile-first pattern.
-*/
-
-
 /*
 strike + timer
 */
@@ -2281,23 +1843,6 @@ cant find styling
 }
 
 
-
-.logo-footer {
-  font-family: "Orbitron", sans-serif;
-  font-size: 2rem;
-  color: var(--primary);
-  color: #7B34DD;
-  letter-spacing: 3px;
-  /* animation: logoGlow 2s infinite alternate; */
-
-  display: flex;
-  position: relative;
-
-  align-items: center;
-  gap: 1.5rem;
-
-}
-
 @keyframes logoGlow {
   from {
     text-shadow: 0 0 10px #7B34DD;
@@ -2309,3 +1854,382 @@ cant find styling
     ;
   }
 }
+
+
+
+/* ======================================================= */
+/* ===== COMPLETE & RESPONSIVE FOOTER (COPY ALL THIS) ===== */
+/* ======================================================= */
+
+/* --- 1. Main Footer & Container Styles --- */
+footer {
+    background: var(--darker, #0d0d0d);
+    color: var(--text-light, #f0f0f0);
+    padding: 1.75rem 0 0.5rem 0; /* Generous top padding */
+    /* width: 100%; */
+    box-sizing: border-box; 
+    
+      background: var(--darker);
+  color: var(--text-light);
+  /* padding: 1rem 0 1rem; */
+  width: 100vw;
+
+  align-items: center;
+  /* justify-content: space-between; */
+  /* padding: 0 10%; */
+  position: relative;
+  top:0;
+left: 50%;
+  right: 0;
+  transform: translateX(-50%);
+  overflow: hidden;/* Ensures padding is included in width */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Side padding for content */
+}
+
+/* --- 2. Desktop Layout (4 Columns) --- */
+.footer-content {
+    display: grid;
+    /* Explicitly create 4 columns for desktop */
+    grid-template-columns: 2fr 1fr 1fr 1.5fr; 
+    gap: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section h4 {
+    color: var(--primary, #00D1FF);
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+}
+
+
+.footer-section pre {
+    /* color: var(--text-secondary, #ccc); */
+    line-height: 2;
+    margin: 0;
+    font-size: medium;
+}
+
+.footer-section a {
+    display: block;
+    color: var(--text-light, #f0f0f0);
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--primary, #00D1FF);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-links a i {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover i {
+    transform: scale(1.2);
+    color: var(--primary, #00D1FF);
+}
+
+/* --- 3. Email Form --- */
+.email-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.email-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color, #333);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light, #f0f0f0);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.email-input:focus {
+    outline: none;
+    border-color: var(--primary-purple, #4F00FF);
+    box-shadow: 0 0 0 3px rgba(79, 0, 255, 0.3);
+}
+
+.email-container button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #00D1FF, #00A3FF, #4F00FF);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.email-container button:hover {
+    transform: scale(1.03);
+}
+
+/* --- 4. Footer Bottom (Copyright) --- */
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color, #333);
+    color: var(--text-secondary, #ccc);
+}
+
+
+
+.email-input {
+  flex: 1;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid rgba(255, 102, 0, 0.3);
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+}
+
+.email-input::placeholder {
+  color: var(--text-light);
+}
+
+
+/* --- Base Styles (Mobile First Approach) --- */
+.email-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* A slightly smaller gap for mobile */
+  width: 100%;
+  /* Take up all available horizontal space */
+  max-width: 400px;
+  /* Set a max-width for larger screens */
+  margin-top: 2px;
+  /* Use auto for left/right margins to center it within its parent */
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background-color: transparent;
+  font-size: 1.1rem;
+  /* Slightly adjusted base font size for readability */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  /* Ensures padding doesn't add to the width */
+}
+
+.email-container label {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.email-container input {
+  padding: 12px;
+  /* A bit more padding for easier tapping on mobile */
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 1rem;
+  /* Using rem for better scalability */
+  outline: none;
+  transition: border-color 0.3s ease;
+  background: var(--input-bg);
+}
+
+.email-container input:focus {
+  border-color: #4F00FF;
+}
+
+.email-container button {
+  padding: 12px;
+  /* Match the input padding */
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #00D1FF 0%, #00A3FF 70%, #4F00FF 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  /* Consistent font size */
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.email-container button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 80px;
+  width: 80px;
+  z-index: 100;
+}
+
+
+/* ================================= */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* ================================= */
+
+/* --- 5. Tablet Layout (2x2 Grid) --- */
+@media (max-width: 992px) {
+    footer {
+        padding: 4rem 0 2rem 0; /* Slightly less padding */
+    }
+
+    .footer-content {
+        /* Switch to a balanced 2-column grid */
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- 6. Mobile Layout (Single Column) --- */
+@media (max-width: 640px) {
+    footer {
+        padding: 3rem 0 1.5rem 0; /* Even less padding to reduce space */
+    }
+
+    .footer-content {
+        /* Stack everything into a single, centered column */
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem; /* Reduce gap for a more compact look */
+        margin-bottom: 2.5rem;
+    }
+    
+    .footer-bottom {
+        padding-top: 1.5rem;
+    }
+
+    .social-links {
+        /* Center the icons within their container */
+        justify-content: center;
+    }
+    
+    .email-container {
+        /* Center the form */
+        margin: 0 auto;
+        max-width: 350px;
+    }
+}
+
+
+/* ================================= */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* ================================= */
+
+/* --- 3. TABLET LAYOUT (Switches to 2x2 Grid) --- */
+@media (min-width: 641px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr; /* Create a 2x2 grid */
+        text-align: left; /* Align text to the left */
+    }
+
+    /* We no longer need the flexbox grouping, so we reset it */
+    .footer-links-group {
+        display: contents; /* This makes the wrapper "disappear" and its children become direct grid items */
+    }
+
+    .email-container {
+        margin: 0; /* Un-center the form */
+    }
+
+    .social-links {
+        justify-content: flex-start; /* Align icons left */
+    }
+}
+
+/* --- 4. DESKTOP LAYOUT (Switches to 4-Column) --- */
+@media (min-width: 993px) {
+    .footer-content {
+        grid-template-columns: 2fr 1fr 1fr 1.5fr; /* Your original desktop layout */
+    }
+}
+
+
+
+
+
+/* ======================================================= */
+/* ===== RESPONSIVE STYLES FOR ABOUT US / HERO SECTION ===== */
+/* ======================================================= */
+
+/* --- Tablet View --- */
+@media (max-width: 1024px) {
+    .hero-grid {
+        /* The most important change: stack the columns vertically */
+        grid-template-columns: 1fr;
+        gap: 3rem; /* Adjust the space between the stacked items */
+    }
+
+    .hero-content {
+        /* Center-align the text and buttons for a balanced look */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-content p {
+        /* Ensure the paragraph doesn't stay stuck to the left */
+        max-width: 550px;
+    }
+
+    .snippet {
+        /* Center the code snippet block */
+        margin: 0 auto;
+    }
+}
+
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+    .hero-container {
+        /* Reduce the space from the navbar on small screens */
+        margin-top: 80px;
+    }
+
+    .hero-content h1 {
+        /* Make the main heading a bit smaller for phones */
+        font-size: 2.5rem;
+        line-height: 1.3;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .action-buttons {
+        /* Stack the buttons vertically for a cleaner look */
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px; /* Control the max width of stacked buttons */
+    }
+    
+    .feature-terminal {
+        /* Optional: Slightly reduce padding inside the terminal on mobile */
+        padding: 1.5rem;
+    }
+}
+
