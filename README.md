@@ -7,7 +7,9 @@ This project was created as part of an **Online Hackathon Challenge**.
 
 ---
 
-🌐 Live Deployment: https://strike-eosin.vercel.app/
+🌐 Live Deployment: 
+netlify link : https://strike-premuim.netlify.app/
+vercel : https://strike-eosin.vercel.app/ (not working)
 
 💾 Source Code: https://prachi-sharnagat.github.io/STRIKE
 
